@@ -41,6 +41,10 @@ header {
     font-size: 1.3rem;
 }
 
+#difficulty {
+    width: 150px;
+}
+
 .cell {
     width: calc(100% / 10);
     height: calc(100% / 10);
