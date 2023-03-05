@@ -8,15 +8,6 @@ che fornisca una scelta tra tre diversi livelli di difficoltà:
     divise in 9 caselle per 9 righe;
 - con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, 
     divise in 7 caselle per 7 righe;
-Consigli del giorno:  :party_wizard:
-Scriviamo prima cosa vogliamo fare passo passo in italiano, dividiamo 
-il lavoro in micro problemi.
-Ad esempio:
-Di cosa ho bisogno per generare i numeri?
-Proviamo sempre prima con dei console.log() per capire se 
-stiamo ricevendo i dati giusti.
-Le validazioni e i controlli possiamo farli anche in un 
-secondo momento.
 */
 
 // creo variabile degli elementi HTML che andrò a manipolare
@@ -24,20 +15,47 @@ let gridEl = document.getElementById('grid');
 let buttonCreate = document.getElementById('btn-create');
 let buttonClear = document.getElementById('btn-clear');
 
+// console.log(difficultyChoice.value);
 gridEl.style.display = 'none';
 
-for(i = 1; i < 101; i++) {
-    let newCell = document.createElement('div');
-    gridEl.append(newCell);
-    newCell.innerText = i;
-    newCell.classList.add('cell');
-    newCell.addEventListener('click', function() {
-        newCell.style.backgroundColor = 'lightblue';
-        console.log(newCell.innerText);
-    })
-}    
-
-// creo evento al click per generare la griglia con 100 celle
+// creo evento al click per generare la griglia con le celle
 buttonCreate.addEventListener('click', function () {
     gridEl.style.display = 'flex';
+    let difficultyChoice = document.getElementById('difficulty');
+    if (difficultyChoice.value == 'easy') {
+        for(i = 1; i < 101; i++) {
+            let newCell = document.createElement('div');
+            gridEl.append(newCell);
+            newCell.innerText = i;
+            newCell.classList.add('cell-easy');
+            newCell.addEventListener('click', function() {
+                newCell.style.backgroundColor = 'lightblue';
+                console.log(newCell.innerText);
+            })
+        }    
+    } else if (difficultyChoice.value == 'medium') {
+        for(i = 1; i < 82; i++) {
+            let newCell = document.createElement('div');
+            gridEl.append(newCell);
+            newCell.innerText = i;
+            newCell.classList.add('cell-medium');
+            newCell.addEventListener('click', function () {
+                newCell.style.backgroundColor = 'lightblue';
+                console.log(newCell.innerText);
+            })
+        }    
+
+    } else if (difficultyChoice.value == 'hard') {
+        for(i = 1; i< 50; i++) {
+        let newCell = document.createElement('div');
+        gridEl.append(newCell);
+        newCell.innerText = i;
+        newCell.classList.add('cell-hard');
+        newCell.addEventListener('click', function () {
+            newCell.style.backgroundColor = 'lightblue';
+            console.log(newCell.innerText);
+        })
+    }   
+    }
+
 })
