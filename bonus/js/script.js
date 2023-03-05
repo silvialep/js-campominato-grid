@@ -23,39 +23,50 @@ buttonCreate.addEventListener('click', function () {
     gridEl.style.display = 'flex';
     let difficultyChoice = document.getElementById('difficulty');
     if (difficultyChoice.value == 'easy') {
-        for(i = 1; i < 101; i++) {
-            let newCell = document.createElement('div');
-            gridEl.append(newCell);
-            newCell.innerText = i;
-            newCell.classList.add('cell-easy');
-            newCell.addEventListener('click', function() {
-                newCell.style.backgroundColor = 'lightblue';
-                console.log(newCell.innerText);
-            })
-        }    
+        easyGrid(gridEl);
     } else if (difficultyChoice.value == 'medium') {
-        for(i = 1; i < 82; i++) {
-            let newCell = document.createElement('div');
-            gridEl.append(newCell);
-            newCell.innerText = i;
-            newCell.classList.add('cell-medium');
-            newCell.addEventListener('click', function () {
-                newCell.style.backgroundColor = 'lightblue';
-                console.log(newCell.innerText);
-            })
-        }    
-
+        mediumGrid(gridEl);
     } else if (difficultyChoice.value == 'hard') {
-        for(i = 1; i< 50; i++) {
+        hardGrid(gridEl);
+    }
+
+})
+
+function easyGrid(container) {
+    for (i = 1; i < 101; i++) {
         let newCell = document.createElement('div');
-        gridEl.append(newCell);
+        container.append(newCell);
+        newCell.innerText = i;
+        newCell.classList.add('cell-easy');
+        newCell.addEventListener('click', function () {
+            newCell.style.backgroundColor = 'lightblue';
+            console.log(newCell.innerText);
+        })
+    }
+}
+
+function mediumGrid(container) {
+    for (i = 1; i < 82; i++) {
+        let newCell = document.createElement('div');
+        container.append(newCell);
+        newCell.innerText = i;
+        newCell.classList.add('cell-medium');
+        newCell.addEventListener('click', function () {
+            newCell.style.backgroundColor = 'lightblue';
+            console.log(newCell.innerText);
+        })
+    }
+}
+
+function hardGrid(container) {
+    for (i = 1; i < 50; i++) {
+        let newCell = document.createElement('div');
+        container.append(newCell);
         newCell.innerText = i;
         newCell.classList.add('cell-hard');
         newCell.addEventListener('click', function () {
             newCell.style.backgroundColor = 'lightblue';
             console.log(newCell.innerText);
         })
-    }   
     }
-
-})
+}
